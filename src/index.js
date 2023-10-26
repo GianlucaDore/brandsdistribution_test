@@ -1,13 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Home } from './pages/Home';
+import { Pokemon } from './pages/Pokemon';
+import { NotFound } from './pages/NotFound';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import './index.css';
+import { persistStore } from 'redux-persist';
+
+const persistor = persistStore(store);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={ <Home /> } />
+            <Route path="/pokémon/:id" element={ <Pokemon /> } />
+            <Route path="*" element={ <NotFound /> } />
+          </Routes>
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
   </React.StrictMode>
 );
 
