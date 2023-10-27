@@ -35,7 +35,7 @@ export const fetchAsyncPokedex = createAsyncThunk('poke/fetchAsyncPokedex',
                 let currentStep = evolutionsData.chain;
                 while (currentStep)  
                 {
-                    evolutions.push(currentStep.species.name);
+                    evolutions.push(currentStep.species.name.charAt(0).toUpperCase() + currentStep.species.name.slice(1));
                     currentStep = currentStep.evolves_to[0];
                 }
 
@@ -44,13 +44,13 @@ export const fetchAsyncPokedex = createAsyncThunk('poke/fetchAsyncPokedex',
 
                 return ({
                             id : p.id,
-                            name : p.name,
+                            name : p.name.charAt(0).toUpperCase() + p.name.slice(1),
                             number : p.pokedex_numbers[1].entry_number,
                             height : pokemonData.height,
                             weight : pokemonData.weight,
-                            types : pokemonData.types.map(t => t.type.name),
+                            types : pokemonData.types.map(t => t.type.name.charAt(0).toUpperCase() + t.type.name.slice(1)),
                             stats : pokemonData.stats.map(s => { return {
-                                                                            statName : s.stat.name,
+                                                                            statName : s.stat.name.charAt(0).toUpperCase() + s.stat.name.slice(1),
                                                                             statValue : s.base_stat
                                                                         }}),
                             statSum : statSum,
@@ -103,7 +103,14 @@ export const pokeSlice = createSlice({
 
 // Fuctions that components may use to subscribe and retrieve a certain piece/field of the state in the Redux store.
 export const getPokedexPage = (state) => state.poke.pokedex;
-export const getSelectedPokemonData = (state, action) => state.poke.pokedex[action.payload - 1]; // Return the correspondent Pokémon (array starts at 0).
+export const getPokemonByName = (pokemonName) => (state) => { return state.poke.pokedex.find(pokemon => pokemon.name === pokemonName); };  // Using currying to be able to call useSelector(getPokemonByName('pokemon-name')) in the UI.
+export const getEvolutionsImages = (evolutionTree) => (state) => {  if (evolutionTree === undefined) return null;
+                                                                    return (
+                                                                      evolutionTree.map(e => { return {
+                                                                        name: e,
+                                                                        image: state.poke.pokedex.find(pokemon => pokemon.name === e).images[0]
+                                                                    } }) )
+                                                                 }
 export const getPokedexStatus = (state) => { return (state.poke.pokedex.length === 0) ? ("EMPTY") : ("FULL") };
 export const getSpinnerStatus = (state) => state.poke.isLoading;
 

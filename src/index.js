@@ -21,7 +21,7 @@ root.render(
         <BrowserRouter>
           <Routes>
             <Route exact path="/" element={ <Home /> } />
-            <Route path="/pokémon/:id" element={ <Pokemon /> } />
+            <Route path="/pokémon/:name" element={ <Pokemon /> } />
             <Route path="*" element={ <NotFound /> } />
           </Routes>
         </BrowserRouter>

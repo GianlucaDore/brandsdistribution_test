@@ -9,9 +9,9 @@ export const PokedexPage = (props) =>
         <div className="pokedexpage">
             { props.data.map((pokemon) => {return (
                 <div className="pokemon_entry" key={pokemon.name}>
-                    <button onClick={(e) => {e.preventDefault(); navigate("/pokémon/"+ pokemon.id)}}>
-                        <img src={pokemon.image} alt="pokemon_sprite" />
-                        <h6>{pokemon.name}</h6>
+                    <button onClick={(e) => {e.preventDefault(); navigate("/pokémon/" + pokemon.name)}}>
+                        <img src={pokemon.images[0]} alt="pokemon_sprite" />
+                        <h3>{pokemon.name}</h3>
                     </button>
                 </div>
                 )})
