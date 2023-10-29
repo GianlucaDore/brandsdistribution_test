@@ -42,6 +42,22 @@ minimum thanks to a proper check in the persistent storage each time the applica
 The following screens represent how the application behaves once the repo is cloned and booted.
 
 
+![Home_1920x1080](https://github.com/GianlucaDore/brandsdistribution_test/assets/51960987/b4a7d51d-d5e2-4876-9e17-3be711d2199c)
+
+
+![Home_page5_1920x1080](https://github.com/GianlucaDore/brandsdistribution_test/assets/51960987/18a80ec1-f1b4-4b63-85e2-9ac9fd9f86a4)
+
+
+![Pokemon_FULL](https://github.com/GianlucaDore/brandsdistribution_test/assets/51960987/4ee92b52-ed54-40de-b00d-9b2893730eec)
+
+
+![Pokemon_iPadAir](https://github.com/GianlucaDore/brandsdistribution_test/assets/51960987/2cb8641d-4fae-4d89-8a1f-b15485ed137d)
+
+
+![Pokemon_iPhoneSE](https://github.com/GianlucaDore/brandsdistribution_test/assets/51960987/c9fc797f-6aa5-4578-911a-6af99ca4abd0)
+
+
+
 
 # Getting Started with Create React App
 
