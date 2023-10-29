@@ -7,7 +7,7 @@ export const Header = () =>
 
     return (
         <div className="header">
-            <h1 onClick={(e) => {e.preventDefault(); navigate(0);}}>Pokédex</h1>
+            <h1 onClick={(e) => {e.preventDefault(); navigate('/');}}>Pokédex</h1>
         </div>
     )
 }
