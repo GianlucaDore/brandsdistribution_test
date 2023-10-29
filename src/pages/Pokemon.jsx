@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { getPokemonByName } from "../redux/pokeSlice";
 import { Header } from "../components/Header";
 import { PokemonCard } from "../components/PokemonCard";
+import '../css/Pokemon.css';
 
 export const Pokemon = () =>
 {

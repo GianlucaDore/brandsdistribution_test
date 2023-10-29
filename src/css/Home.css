@@ -1,0 +1,134 @@
+.header
+{
+    display: flex;
+    flex-direction: row;
+    background-color: #FF0000;
+    border-radius: 5px 5px 0 0;
+}
+
+.header > h1
+{
+    color: white;
+    margin: 0;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-left: 0.8%;
+    align-self: flex-start;
+}
+
+.header > h1:hover
+{
+    cursor: pointer;
+    color: white;
+    margin: 0;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    margin-left: 0.8%;
+    align-self: flex-start;
+}
+
+.home
+{
+    min-height: 100vh;
+    background-color: silver;
+}
+
+.title
+{
+    text-align: center;
+}
+
+.title > img
+{
+    width: 20%;
+    margin-top: 20px;
+}
+
+.loader_container
+{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.pokedexpage
+{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.data_subset
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.pokemon_entry 
+{
+    width: 150px;
+    height: 150px;
+    margin: 8px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px #000000;
+}
+
+.pokemon_entry > button 
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    transition: transform 0.1s ease-in-out;
+}
+
+.pokemon_entry > button:hover 
+{
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.pagination
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+    list-style-type: none;
+    font-weight: 400;
+}
+
+.page, .next_page, .previous_page
+{
+    cursor: pointer;
+}
+
+.active_page
+{
+    cursor: default;
+    text-decoration: underline;
+    font-weight: 1000;
+}
+
+.disabled_page
+{
+    display: none;
+}
+
+
+@media screen and (max-width: 699px)
+{
+    .title > img
+    {
+        width: 60%;
+        margin-top: 20px;
+    }   
+}

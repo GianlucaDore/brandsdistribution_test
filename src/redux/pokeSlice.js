@@ -106,11 +106,17 @@ export const getPokedexPage = (state) => state.poke.pokedex;
 export const getPokemonByName = (pokemonName) => (state) => { return state.poke.pokedex.find(pokemon => pokemon.name === pokemonName); };  // Using currying to be able to call useSelector(getPokemonByName('pokemon-name')) in the UI.
 export const getEvolutionsImages = (evolutionTree) => (state) => {  if (evolutionTree === undefined) return null;
                                                                     return (
-                                                                      evolutionTree.map(e => { return {
-                                                                        name: e,
-                                                                        image: state.poke.pokedex.find(pokemon => pokemon.name === e).images[0]
-                                                                    } }) )
-                                                                 }
+                                                                      evolutionTree.map(e => { 
+                                                                        /* The evolution API may return evolutions invented in next generations and not included in our Kanto (1st gen) pokédex. We must ignore them. */
+                                                                            const searchedSpecie = state.poke.pokedex.find(pokemon => pokemon.name === e); 
+                                                                            if (searchedSpecie === undefined) return null;  // Evolutions not present in 1st gen won't be found in our pokédex: find() would return undefined.
+                                                                            else return {
+                                                                                name: e,
+                                                                                image: searchedSpecie.images[0]
+                                                                            }
+                                                                      }).filter(e => e !== null)  // We must ignore null items (evolutions that point to species not included in Gen 1).
+                                                                    )
+                                                                };
 export const getPokedexStatus = (state) => { return (state.poke.pokedex.length === 0) ? ("EMPTY") : ("FULL") };
 export const getSpinnerStatus = (state) => state.poke.isLoading;
 

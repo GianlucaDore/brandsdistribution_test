@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAsyncPokedex, getPokedexPage, getPokedexStatus, getSpinnerStatus, turnOnSpinner } from "../redux/pokeSlice";
 import { Title } from "../components/Title";
 import { MoonLoader } from "react-spinners";
+import '../css/Home.css';
 
 export const Home = () =>
 {
@@ -29,7 +30,7 @@ export const Home = () =>
         <div className="home">
             <Header />
             <Title />
-            {(isLoading === true) ? (<MoonLoader loading={isLoading} />) : (<PokedexPage data={pokedexPage} />)}
+            {(isLoading === true) ? (<div className="loader_container"><MoonLoader loading={isLoading} /></div>) : (<PokedexPage data={pokedexPage} />)}
         </div>
     )
 }

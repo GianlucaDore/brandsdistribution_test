@@ -43,7 +43,7 @@ export const PokedexPage = (props) =>
                     )})
                 }
             </div>
-            <ReactPaginate pageCount={totalPages} onPageChange={handlePageChange} forcePage={currentPage} />
+            <ReactPaginate pageCount={totalPages} onPageChange={handlePageChange} containerClassName="pagination" pageClassName="page" activeClassName="active_page" disabledClassName="disabled_page" nextClassName="next_page" previousClassName="previous_page" />
         </div>
     );
 }
